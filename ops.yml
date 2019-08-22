@@ -1,0 +1,29 @@
+version: "1"
+ops:
+  - name: python
+    description: A test of python scripts
+    run: python hello-karim.py
+    network: host
+    env:
+      - USER=world
+      - OPS_ACCESS_TOKEN
+    src:
+      - Dockerfile
+      - index.js
+      - demo.js
+      - package.json
+      - .dockerignore
+      - hello-karim.py
+      - hello-karim.rb
+    mountCwd: false
+    mountHome: false
+    bind:
+      - /tmp:/tmp
+    help:
+      usage: Your first hello-world op
+      arguments:
+        username: Your username
+        email: Your email
+      options:
+        build: Build flag
+        clear: Clears
